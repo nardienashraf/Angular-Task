@@ -1,0 +1,45 @@
+<!-- Day 7 -->
+<button class="btn btn-success m-3" (click)="addStaticProduct()">Add Static Product</button>
+
+<div class="container m-5">
+    <form #productForm="ngForm">
+        <!-- product name -->
+        <div class="mb-3">
+            <label for="prdName" class="form-label">Product Name</label>
+            <input type="text" #prdNameInput="ngModel" class="form-control" name="prdName" id="prdName"
+                [(ngModel)]="dynamicProduct.name" required minlength="10" [class.is-valid]="prdNameInput.valid"
+                [class.is-invalid]="prdNameInput.invalid" [value]="productReturn.name">
+    
+            <div class="alert alert-danger" [hidden]="prdNameInput.valid || prdNameInput.untouched">
+                <small *ngIf="prdNameInput.errors?.['required']">Product name is required</small>
+                <small *ngIf="prdNameInput.errors?.['minlength']">Product name must be at least 10 Characters.</small>
+            </div>
+        </div>
+    
+        <!-- Quantity -->
+        <div class="mb-3">
+            <label for="prdQuant" class="form-label">Quantity</label>
+            <input type="number" class="form-control" name="prdQuant" id="prdQuant" [(ngModel)]="dynamicProduct.quantity" required [value]="productReturn.quantity">
+        </div>
+    
+        <!-- Price -->
+        <div class="mb-3">
+            <label for="prdPrc" class="form-label">Price</label>
+            <input type="number" class="form-control" name="prdPrc" id="prdPrc" [(ngModel)]="dynamicProduct.price" required [value]="productReturn.price">
+        </div>
+    
+        <!-- Category -->
+        <div class="mb-3">
+            <label for="prdCat" class="form-label">Select Category</label>
+            <select class="form-control" name="prdCat" id="prdCat" [(ngModel)]="dynamicProduct.categoryID" required>
+                <option *ngFor="let cat of categoryList" [value]="cat.id">
+                    {{cat.name}}
+                </option>
+            </select>
+        </div>
+    
+        <button type="submit" class="btn btn-success m-3" [disabled]="productForm.invalid" (click)="addNewProduct()">Submit</button>
+        <button type="submit" class="btn btn-success m-3" [disabled]="productForm.invalid" (click)="editProduct(dynamicProduct)">Edit</button>
+
+    </form>
+</div>

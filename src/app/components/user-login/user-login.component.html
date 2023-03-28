@@ -1,0 +1,28 @@
+<div class="container m-5">
+    <form class="m-2">
+
+        <!-- Username -->
+        <div class="mb-3">
+            <label for="usrName" class="form-label">Username</label>
+            <input type="text" class="form-control" name="usrName" id="usrName" formControlName="username">
+
+        </div>
+
+        <!-- Email Address -->
+        <div class="mb-3">
+            <label for="usrEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" name="usrEmail" id="usrEmail" formControlName="email">
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+            <label for="usrPass" class="form-label">Password</label>
+            <input type="password" class="form-control" name="usrPass" id="usrPass" formControlName="password">
+        </div>
+          
+        <br>
+        <button class="btn btn-success m-3" (click)="userLogin()" [disabled]="user">Login Button</button>
+        <button class="btn btn-success m-3" (click)="userLogout()" [disabled]="!user">Logout Button</button>
+
+    </form>
+</div>

@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col m-3">
+        <h2 class="my-2">New Products</h2>
+        <div class="fluid-container">
+            <img src="assets/sony.jpg" class="col" style="width: 150px;">
+            <h4>Name: Sony Wireless Headphones</h4>
+            <h5>Price: 16,300</h5>
+            <img src="assets/laptop.jpg" class="col" style="width: 150px;">
+            <h4>Name: Lenovo Laptop</h4>
+            <h5>Price: 20,000</h5>
+            <img src="assets/mouse.jpg" class="col" style="width: 150px;">
+            <h4>Name: Philips Mouse</h4>
+            <h5>Price: 5,000</h5>
+        </div>
+    </div>
+
+    <!-- Day6 => Display Ads -->
+    <div class="container mt-5" style="width: 50rem;height: 50rem;">
+        <div class="shadow p-3 m-5 bg-white rounded border border-dark">
+            <div *ngFor="let ads of displaydata">
+                {{ads}}
+            </div>
+        </div>
+    </div>
+</div>
+
+

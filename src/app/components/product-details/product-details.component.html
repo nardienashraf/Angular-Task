@@ -1,0 +1,13 @@
+<div class="card col m-3 shadow-lg" style="width: 260px; height: 380px;">
+    <img [src]="prd?.img" class="card-img-top" style="width: 100px; margin: 10px auto ;">
+    <div class="card-body" style=" margin: 10px auto ">
+        <h4 class="card-title">Name: {{prd?.name}}</h4>
+        <p class="card-text h5">Price: {{prd?.price | currency:'EGP'}}</p> 
+        <p class="card-text h5">Quantity: {{prd?.quantity}}</p>
+        <a href="#" class="btn btn-success">Add To Cart</a>
+        <div class="btn-group mt-3">
+            <button class="btn btn-secondary" (click)="previous()" [disabled]="currentProductID==productsIDs[0]">Previous</button>
+            <button class="btn btn-secondary" (click)="next()" [disabled]="currentProductID==productsIDs[productsIDs.length-1]">Next</button>
+        </div>
+    </div>
+</div>

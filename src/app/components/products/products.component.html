@@ -1,0 +1,60 @@
+<!-- Day 1
+<h4>Product Name: {{product1.name}}</h4>
+<h6>Discount: {{disc}}</h6>
+<img [src]="product1.img" alt=""> -->
+
+<!-- Day 2
+<h4 class="mt-3">Store Name: {{storeName.name}}</h4>
+<!-- <h3 *ngIf="DiscountTitle; else discountOffer">hide</h3>
+<ng-template #discountOffer>We offer an explicit discount of: {{discount}}</ng-template> 
+<div *ngIf="showLogo; else message"> <img [src]="storeName.logo"> </div>
+<ng-template #message>Thanks for purchasing from our Store: {{storeName.name}} </ng-template>
+<button class="btn btn-success mb-3" (click)="toggleLogo()">Show/Hide Logo</button>
+<hr> -->
+
+
+<!-- Day 7 -->
+<button class="btn btn-success my-3" [routerLink]="['/add']">Add New Product</button>
+
+<!-- Day 3 -->
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Number</th>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Count</th>
+        <th scope="col">Price in EGP</th>
+        <th scope="col">Details</th>
+        <th scope="col">Add to cart</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productsOfSpecificCat ; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{product.name}}</td>
+            <!-- Custom Directive -->
+            <td><img [src]="product.img" width="70px"></td>
+            <td>{{product.quantity}}</td>
+            <td><input #itemsCount type="number" class="form-control"></td>
+            <td>{{product.price | currency:'EGP'}}</td>
+            <td><button class="btn btn-success" (click)="showDetails(product.id)">Show Details</button></td>
+            <td><button class="btn btn-success" (click)="addToCart(i, itemsCount.value)">Add to cart</button></td>
+            <td><button class="btn btn-success" (click)="editProduct(i, product.id)">Edit</button></td>
+            <td><button class="btn btn-success" (click)="deleteProduct(product.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+<!-- 
+<hr>
+<div class="wrapper">
+  <form class="form-signin">       
+    <h2 class="form-signin-heading">Add New Product</h2>
+    <input #number type="text" class="form-control mt-2" placeholder="Number"/>
+    <input #name type="text" class="form-control mt-2" placeholder="Product name"/>
+    <input #price type="text" class="form-control mt-2" placeholder="Price"/>    
+    <input #quantity type="text" class="form-control mt-2" placeholder="Quantity"/>   
+    <button type="submit" class="btn btn-lg btn-success btn-block mt-3" (click)="getDataOfNewProduct(number.value,name.value,price.value,quantity.value)">Submit</button>
+  </form>
+</div> -->
